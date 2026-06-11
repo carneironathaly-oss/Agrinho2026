@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agrinho: Agro Forte, Futuro Sustentável</title>
+    <style>
+        /* --- NOVA PALETA DE CORES (CSS VARIABLES) --- */
+        :root {
+            --cor-primaria-escura: #1a3a3a;   /* Azul petróleo escuro para cabeçalhos */
+            --cor-primaria: #2a5c5c;          /* Azul petróleo principal */
+            --cor-secundaria: #e6ecea;        /* Fundo claro com toque esverdeado */
+            --cor-destaque: #d4a373;          /* Tom terracota/ouro para detalhes */
+            --texto-escuro: #2b2d42;          /* Grafite escuro para leitura confortável */
+            --branco: #ffffff;
+            --cor-fundo-geral: #f7f9f9;       /* Fundo da página */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--cor-fundo-geral);
+            color: var(--texto-escuro);
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(rgba(26, 58, 58, 0.85), rgba(26, 58, 58, 0.85)), url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--branco);
+            text-align: center;
+            padding: 6rem 2rem;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: var(--cor-destaque);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 300;
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Abas Interativas (Tabs) */
+        .abas-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .aba-btn {
+            background-color: var(--cor-secundaria);
+            color: var(--cor-primaria-escura);
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .aba-btn.ativo, .aba-btn:hover {
+            background-color: var(--cor-primaria);
+            color: var(--branco);
+            transform: translateY(-2px);
+        }
+
+        /* Conteúdo das Abas */
+        .conteudo-aba {
+            display: none;
+            background-color: var(--branco);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .conteudo-aba.ativo {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: var(--cor-primaria-escura);
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--cor-destaque);
+            padding-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        /* Cartões de Destaque */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--cor-fundo-geral);
+            border-left: 4px solid var(--cor-primaria);
+            padding: 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .card h3 {
+            color: var(--cor-primaria);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: var(--cor-primaria-escura);
+            color: var(--branco);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .abas-container {
+                flex-direction: column;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Agro Forte, Futuro Sustentável</h1>
+        <p>Concurso de Programação Agrinho: Entendendo o equilíbrio vital entre a produção de alimentos e a preservação do meio ambiente.</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="abas-container">
+            <button class="aba-btn ativo" onclick="abrirAba(event, 'introducao')">O Desafio</button>
+            <button class="aba-btn" onclick="abrirAba(event, 'producao')">Produção Forte</button>
+            <button class="aba-btn" onclick="abrirAba(event, 'sustentabilidade')">Meio Ambiente</button>
+            <button class="aba-btn" onclick="abrirAba(event, 'tecnologia')">Tecnologia no Campo</button>
+        </div>
+
+        <div id="introducao" class="conteudo-aba ativo">
+            <h2>O Equilíbrio Necessário</h2>
+            <p>O grande desafio do século XXI é alimentar uma população mundial em constante crescimento sem esgotar os recursos naturais do nosso planeta. O tema <strong>"Agro forte, futuro sustentável"</strong> nos convida a refletir sobre como a eficiência produtiva e a conservação ambiental andam de mãos dadas.</p>
+            <p>Não existe futuro para a agricultura sem solo fértil, água limpa e clima estável. Da mesma forma, a preservação ambiental ganha força quando apoiada por técnicas agrícolas inteligentes que otimizam o uso da terra.</p>
+        </div>
+
+        <div id="producao" class="conteudo-aba">
+            <h2>Produzir Mais e Melhor</h2>
+            <p>Um agro forte significa garantir a segurança alimentar de milhões de pessoas e impulsionar a economia. Através de práticas modernas, o campo consegue aumentar sua produtividade verticalmente — ou seja, produzindo mais no mesmo espaço de terra, evitando o desmatamento de novas áreas.</p>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Rotação de Culturas</h3>
+                    <p>Alternar espécies de plantas na mesma área para manter os nutrientes do solo ativos.</p>
+                </div>
+                <div class="card">
+                    <h3>Plantio Direto</h3>
+                    <p>Cultivo sobre os resíduos da colheita anterior, protegendo o solo contra a erosão.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="sustentabilidade" class="conteudo-aba">
+            <h2>Preservação e Biodiversidade</h2>
+            <p>A sustentabilidade no campo envolve o respeito às leis ambientais e a proteção dos ecossistemas locais. O produtor rural atua como um guardião da natureza ao proteger as Áreas de Preservação Permanente (APPs) e as Reservas Legais.</p>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Recursos Hídricos</h3>
+                    <p>Uso de sistemas de irrigação gota a gota para evitar o desperdício de água.</p>
+                </div>
+                <div class="card">
+                    <h3>Energias Renováveis</h3>
+                    <p>Crescimento do uso de energia solar e biomassa nas propriedades rurais.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="tecnologia" class="conteudo-aba">
+            <h2>A Era do Agro 5.0</h2>
+            <p>A tecnologia e a programação são as ferramentas que tornam esse equilíbrio possível. Sensores, drones e softwares de análise de dados ajudam o agricultor a aplicar a quantidade exata de água ou insumos necessários, reduzindo drasticamente o impacto ambiental.</p>
+            <p><em>Você, programador do Agrinho, faz parte dessa transformação! Através das linhas de código, podemos criar soluções para monitorar o clima, prever safras e proteger o nosso futuro.</em></p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Concurso de Programação Agrinho. Desenvolvido com HTML, CSS e JavaScript.</p>
+    </footer>
+
+    <script>
+        function abrirAba(evento, nomeAba) {
+            const conteudos = document.getElementsByClassName("conteudo-aba");
+            for (let i = 0; i < conteudos.length; i++) {
+                conteudos[i].style.display = "none";
+                conteudos[i].classList.remove("ativo");
+            }
+
+            const botoes = document.getElementsByClassName("aba-btn");
+            for (let i = 0; i < botoes.length; i++) {
+                botoes[i].classList.remove("ativo");
+            }
+
+            const abaAtual = document.getElementById(nomeAba);
+            abaAtual.style.display = "block";
+            setTimeout(() => {
+                abaAtual.classList.add("ativo");
+            }, 10);
+            
+            evento.currentTarget.classList.add("ativo");
+        }
+    </script>
+</body>
+</html>
